@@ -2,11 +2,9 @@
 <html lang="pt-br">
 <head>
     <meta name="google-site-verification" content="7UtqHJKb0TIKJU7yIO2bSxdwW1MyHX-mW5EcQclj6H4" />
-    <title>Bit_nit - Soluções em Tecnologia, Informação e Comunicação</title>
+    <title>Bit_nit-Serviços de Tecnologia</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Oferecemos soluções de tecnologia, incluindo manutenção de sistemas, consultoria em TI e suporte para Android.">
-    <meta name="keywords" content="tecnologia, consultoria, TI, sistemas operacionais, manutenção, android, redes, backup, segurança">
     <style>
         body {
             margin: 0;
@@ -103,9 +101,7 @@
             top: 0;
             left: 0;
             background-image: linear-gradient(135deg, #ffffff00, #ffffff2e 50%, #ffffff00 95%), url(https://i.imgur.com/rRPChfA.png);
-            background-size: cover;
             animation: beta-gradient 40s linear infinite;
-            alt: "Background decorativo";
         }
 
         .scroll-content {
@@ -183,26 +179,11 @@
         .scroll-indicator:hover .arrow {
             border-top-color: #aaa;
         }
-
-        @media only screen and (max-width: 768px) {
-            .main-section {
-                height: 100vh;
-            }
-
-            .connect-tech {
-                font-size: 16px;
-                top: 20%;
-            }
-
-            .matrix-code {
-                font-size: 16px;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="main-section">
-        <div class="matrix" aria-hidden="true"></div>
+        <div class="matrix"></div>
         <div class="connect-tech"><h4>Bit_nit______Soluções em Tecnologia, Informação e Comunicação!<h4/></div>
     </div>
 
@@ -238,6 +219,7 @@
                     Solução em consultoria em TI.<br>
                    · Desinfecção de vírus e malware.<br>
                    · Consultoria em Tecnologia da Informação e Comunicação.
+
                 </p>
             </div>
         </section>
@@ -255,21 +237,18 @@
     </div>
 
     <footer>
-        <p><a href="https://wa.me/48999830912" class="whatsapp-link" aria-label="Entre em contato pelo WhatsApp">Clique aqui para falar conosco!</a></p>
+        <p><a href="https://wa.me/48999830912" class="whatsapp-link">Clique aqui para falar conosco!</a></p>
     </footer>
 
-    <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true">
+    <div class="scroll-indicator" id="scrollIndicator">
         <div class="arrow"></div>
     </div>
 
     <script>
         const matrix = document.querySelector('.matrix');
         const scrollIndicator = document.getElementById('scrollIndicator');
-        const maxCodes = 100;  // Limite máximo de códigos ativos na tela
 
         function createMatrixCode() {
-            if (matrix.children.length >= maxCodes) return;  // Verifique o limite
-
             const code = document.createElement('span');
             code.className = 'matrix-code';
             code.innerHTML = Math.random() < 0.5 ? '0' : '1';
@@ -284,7 +263,7 @@
             });
         }
 
-        setInterval(createMatrixCode, 500);  // Aumentei o intervalo para suavizar o efeito
+        setInterval(createMatrixCode, 300);
 
         function handleScroll() {
             if (window.scrollY > 100) {
@@ -297,6 +276,7 @@
         window.addEventListener('scroll', handleScroll);
     </script>
 
+    <!-- Carregar Firebase após o carregamento da página -->
     <script type="module" defer>
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
