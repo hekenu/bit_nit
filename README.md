@@ -17,7 +17,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
         }
 
         .main-section {
@@ -41,7 +40,6 @@
             pointer-events: none;
             z-index: -1;
             overflow: hidden;
-            background: black;
         }
 
         .matrix-code {
@@ -70,6 +68,7 @@
             background: #111;
             color: #eee;
             z-index: 2;
+            position: relative;
         }
 
         section {
@@ -85,6 +84,8 @@
             color: #fff;
             text-align: center;
             padding: 10px;
+            position: relative;
+            z-index: 2;
         }
 
         .whatsapp-link {
@@ -143,7 +144,9 @@
 <body>
     <div class="main-section">
         <div class="matrix"></div>
-        <div class="connect-tech"><h4>Bit_nit______Soluções em Tecnologia, Informação e Comunicação!</h4></div>
+        <div class="connect-tech">
+            <h4>Bit_nit______Soluções em Tecnologia, Informação e Comunicação!</h4>
+        </div>
     </div>
 
     <div class="scroll-content">
@@ -152,9 +155,9 @@
                 <h2>*___*___*</h2>
                 <p style="color: green;">
                     Para você ou sua empresa que busca manutenção ou implementação de sistemas informatizados.<br>
-                   · Instalação e manutenção de Sistemas operacionais.<br>
-                   · Atualizações e correções de sistemas Linux e Windows.<br>
-                   · Transferência de arquivos.
+                    · Instalação e manutenção de Sistemas operacionais.<br>
+                    · Atualizações e correções de sistemas Linux e Windows.<br>
+                    · Transferência de arquivos.
                 </p>
             </div>
         </section>
@@ -164,9 +167,9 @@
                 <h2>*___*___*</h2>
                 <p style="color: green;">
                     Melhore a forma que você se relaciona com a internet.<br>
-                   · Backup e restauração de dados.<br>
-                   · Recuperação de senhas.<br>
-                   · Configuração de redes.
+                    · Backup e restauração de dados.<br>
+                    · Recuperação de senhas.<br>
+                    · Configuração de redes.
                 </p>
             </div>
         </section>
@@ -176,8 +179,8 @@
                 <h2>*___*___*</h2>
                 <p style="color: green;">
                     Solução em consultoria em TI.<br>
-                   · Desinfecção de vírus e malware.<br>
-                   · Consultoria em Tecnologia da Informação e Comunicação.
+                    · Desinfecção de vírus e malware.<br>
+                    · Consultoria em Tecnologia da Informação e Comunicação.
                 </p>
             </div>
         </section>
@@ -187,8 +190,8 @@
                 <h2>*___*___*</h2>
                 <p style="color: green;">
                     Serviços especializados para smartphones Android:<br>
-                   · Reparos e manutenção de softwares Android.<br>
-                   · Suporte técnico para aplicativos e sistemas.
+                    · Reparos e manutenção de softwares Android.<br>
+                    · Suporte técnico para aplicativos e sistemas.
                 </p>
             </div>
         </section>
@@ -211,9 +214,7 @@
             code.innerHTML = Math.random() < 0.5 ? '0' : '1';
             code.style.left = `${Math.random() * 100}%`;
             code.style.fontSize = `${Math.random() * 20 + 10}px`;
-
-            // Alterar o tempo de animação para melhorar o efeito
-            code.style.animationDuration = `${Math.random() * 5 + 5}s`;
+            code.style.animationDuration = `${Math.random() * 10 + 5}s`;
 
             matrix.appendChild(code);
             code.addEventListener('animationend', () => {
@@ -221,7 +222,7 @@
             });
         }
 
-        setInterval(createMatrixCode, 100);  // Intervalo ajustado para criar mais elementos
+        setInterval(createMatrixCode, 100);
 
         // Função para controlar a visibilidade do indicador de rolagem
         function handleScroll() {
