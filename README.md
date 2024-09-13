@@ -66,27 +66,6 @@
             }
         }
 
-        .colorbar {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
-            background-size: 500% auto;
-            animation: beta-gradient 3s linear infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .colorbar::after {
-            content: "";
-            width: 100%;
-            height: 200px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-image: linear-gradient(135deg, #ffffff00, #ffffff2e 50%, #ffffff00 95%), url(https://i.imgur.com/rRPChfA.png);
-            animation: beta-gradient 40s linear infinite;
-        }
-
         .scroll-content {
             width: 100%;
             padding: 20px;
@@ -97,7 +76,6 @@
 
         section {
             padding: 20px;
-            border-bottom: 1px solid #444;
             background: #222;
             color: #eee;
             margin: 20px 0;
@@ -255,8 +233,17 @@
         window.addEventListener('scroll', handleScroll);
 
         // Inicialização do Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+        (function() {
+            const scriptFirebase = document.createElement('script');
+            scriptFirebase.src = "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+            document.head.appendChild(scriptFirebase);
+
+            scriptFirebase.onload = () => {
+                const scriptAnalytics = document.createElement('script');
+                scriptAnalytics.src = "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+                document.head.appendChild(scriptAnalytics);
+            };
+        })();
 
         const firebaseConfig = {
             apiKey: "AIzaSyAnufuTXRKhtOpYP5AipXd2hf8AqwrHIpw",
