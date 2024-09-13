@@ -16,8 +16,8 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
+            justify-content: center;
         }
 
         .main-section {
@@ -41,28 +41,26 @@
             pointer-events: none;
             z-index: -1;
             overflow: hidden;
+            background: black;
         }
 
         .matrix-code {
-            display: block;
-            font-size: 24px;
-            color: green;
-            opacity: 0;
             position: absolute;
+            color: green;
+            font-size: 20px;
             white-space: nowrap;
+            opacity: 0;
             animation: animate 5s linear infinite;
         }
 
         @keyframes animate {
-            0%, 100% {
+            0% {
                 transform: translateY(-100%);
-                opacity: 0;
-            }
-            10% {
                 opacity: 1;
             }
-            90% {
+            100% {
                 transform: translateY(100%);
+                opacity: 0;
             }
         }
 
@@ -212,9 +210,10 @@
             code.className = 'matrix-code';
             code.innerHTML = Math.random() < 0.5 ? '0' : '1';
             code.style.left = `${Math.random() * 100}%`;
-            code.style.top = `${Math.random() * -100}px`;
-            code.style.animationDuration = `${Math.random() * 4 + 4}s`;
-            code.style.fontSize = `${Math.random() * 10 + 5}px`;
+            code.style.fontSize = `${Math.random() * 20 + 10}px`;
+
+            // Alterar o tempo de animação para melhorar o efeito
+            code.style.animationDuration = `${Math.random() * 5 + 5}s`;
 
             matrix.appendChild(code);
             code.addEventListener('animationend', () => {
@@ -222,7 +221,7 @@
             });
         }
 
-        setInterval(createMatrixCode, 300);
+        setInterval(createMatrixCode, 100);  // Intervalo ajustado para criar mais elementos
 
         // Função para controlar a visibilidade do indicador de rolagem
         function handleScroll() {
@@ -231,40 +230,6 @@
         }
 
         window.addEventListener('scroll', handleScroll);
-
-        // Inicialização do Firebase
-        (function() {
-            const scriptFirebase = document.createElement('script');
-            scriptFirebase.src = "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-            document.head.appendChild(scriptFirebase);
-
-            scriptFirebase.onload = () => {
-                const scriptAnalytics = document.createElement('script');
-                scriptAnalytics.src = "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
-                document.head.appendChild(scriptAnalytics);
-            };
-        })();
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyAnufuTXRKhtOpYP5AipXd2hf8AqwrHIpw",
-            authDomain: "connect-3e9c9.firebaseapp.com",
-            projectId: "connect-3e9c9",
-            storageBucket: "connect-3e9c9.appspot.com",
-            messagingSenderId: "150149446118",
-            appId: "1:150149446118:web:27524a7e3d19275761fe27",
-            measurementId: "G-T55280126P"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-
-        // Carregar Google Tag Manager após o carregamento da página
-        window.addEventListener('load', () => {
-            const scriptGtm = document.createElement('script');
-            scriptGtm.src = "https://www.googletagmanager.com/gtag/js?id=G-T55280126P";
-            scriptGtm.async = true;
-            document.head.appendChild(scriptGtm);
-        });
     </script>
 </body>
 </html>
