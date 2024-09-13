@@ -23,7 +23,7 @@
         .main-section {
             position: relative;
             width: 100%;
-            height: 100vh; /* 100% da tela */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -33,46 +33,36 @@
         }
 
         .matrix {
-            position: fixed; /* Cobrir a tela inteira */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%; /* 100% da altura da tela */
+            height: 100%;
             pointer-events: none;
             z-index: -1;
-        }
-
-        .connect-tech {
-            font-size: 20px;
-            opacity: 1;
-            text-align: center;
-            z-index: 1;
-            position: absolute;
-            top: 10%;
-            transform: translateY(-10%);
-            text-decoration: none; /* Remove sublinhado */
-            border: none; /* Remove qualquer borda */
+            overflow: hidden;
         }
 
         .matrix-code {
             display: block;
             font-size: 24px;
+            color: green;
             opacity: 0;
             position: absolute;
-            animation: animate 5s linear infinite;
             white-space: nowrap;
+            animation: animate 5s linear infinite;
         }
 
         @keyframes animate {
             0%, 100% {
-                transform: translateY(0);
+                transform: translateY(-100%);
                 opacity: 0;
             }
             10% {
                 opacity: 1;
             }
             90% {
-                transform: translateY(150vh);
+                transform: translateY(100%);
             }
         }
 
@@ -212,7 +202,6 @@
                     Solução em consultoria em TI.<br>
                    · Desinfecção de vírus e malware.<br>
                    · Consultoria em Tecnologia da Informação e Comunicação.
-
                 </p>
             </div>
         </section>
@@ -238,15 +227,9 @@
     </div>
 
     <script>
-        const matrix = document.querySelector('.matrix');
-        const scrollIndicator = document.getElementById('scrollIndicator');
-
-        function createMatrixCode()
-
-        const matrix = document.querySelector('.matrix');
-        const scrollIndicator = document.getElementById('scrollIndicator');
-
+        // Função para criar os elementos de código Matrix
         function createMatrixCode() {
+            const matrix = document.querySelector('.matrix');
             const code = document.createElement('span');
             code.className = 'matrix-code';
             code.innerHTML = Math.random() < 0.5 ? '0' : '1';
@@ -263,15 +246,15 @@
 
         setInterval(createMatrixCode, 300);
 
+        // Função para controlar a visibilidade do indicador de rolagem
         function handleScroll() {
+            const scrollIndicator = document.getElementById('scrollIndicator');
             scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
         }
 
         window.addEventListener('scroll', handleScroll);
-    </script>
 
-    <!-- Carregar Firebase após o carregamento da página -->
-    <script type="module" defer>
+        // Inicialização do Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
 
@@ -287,10 +270,8 @@
 
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-    </script>
 
-    <!-- Carregar Google Tag Manager sob demanda -->
-    <script>
+        // Carregar Google Tag Manager após o carregamento da página
         window.addEventListener('load', () => {
             const scriptGtm = document.createElement('script');
             scriptGtm.src = "https://www.googletagmanager.com/gtag/js?id=G-T55280126P";
@@ -300,4 +281,3 @@
     </script>
 </body>
 </html>
-
