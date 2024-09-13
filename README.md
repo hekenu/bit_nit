@@ -184,7 +184,7 @@
 <body>
     <div class="main-section">
         <div class="matrix"></div>
-        <div class="connect-tech"><h4>Bit_nit______Soluções em Tecnologia, Informação e Comunicação!</h4>h4></div>
+        <div class="connect-tech"><h4>Bit_nit______Soluções em Tecnologia, Informação e Comunicação!</h4></div>
     </div>
 
     <div class="scroll-content">
