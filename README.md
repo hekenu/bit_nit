@@ -23,7 +23,7 @@
         .main-section {
             position: relative;
             width: 100%;
-            height: 150vh;
+            height: 100vh; /* 100% da tela */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -33,11 +33,11 @@
         }
 
         .matrix {
-            position: absolute;
+            position: fixed; /* Cobrir a tela inteira */
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            height: 100%; /* 100% da altura da tela */
             pointer-events: none;
             z-index: -1;
         }
@@ -50,6 +50,8 @@
             position: absolute;
             top: 10%;
             transform: translateY(-10%);
+            text-decoration: none; /* Remove sublinhado */
+            border: none; /* Remove qualquer borda */
         }
 
         .matrix-code {
@@ -71,15 +73,6 @@
             }
             90% {
                 transform: translateY(150vh);
-            }
-        }
-
-        @keyframes beta-gradient {
-            0% {
-                background-position: 0 0;
-            }
-            100% {
-                background-position: 100% 0;
             }
         }
 
@@ -248,6 +241,11 @@
         const matrix = document.querySelector('.matrix');
         const scrollIndicator = document.getElementById('scrollIndicator');
 
+        function createMatrixCode()
+
+        const matrix = document.querySelector('.matrix');
+        const scrollIndicator = document.getElementById('scrollIndicator');
+
         function createMatrixCode() {
             const code = document.createElement('span');
             code.className = 'matrix-code';
@@ -266,11 +264,7 @@
         setInterval(createMatrixCode, 300);
 
         function handleScroll() {
-            if (window.scrollY > 100) {
-                scrollIndicator.style.opacity = '0';
-            } else {
-                scrollIndicator.style.opacity = '1';
-            }
+            scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
         }
 
         window.addEventListener('scroll', handleScroll);
@@ -294,5 +288,16 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
     </script>
+
+    <!-- Carregar Google Tag Manager sob demanda -->
+    <script>
+        window.addEventListener('load', () => {
+            const scriptGtm = document.createElement('script');
+            scriptGtm.src = "https://www.googletagmanager.com/gtag/js?id=G-T55280126P";
+            scriptGtm.async = true;
+            document.head.appendChild(scriptGtm);
+        });
+    </script>
 </body>
 </html>
+
