@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta name="google-site-verification" content="7UtqHJKb0TIKJU7yIO2bSxdwW1MyHX-mW5EcQclj6H4" />
-    <title>Bit_nit - Serviços de Tecnologia</title>
+    <title>Bit_nit-Serviços de Tecnologia</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -44,6 +44,7 @@
 
         .connect-tech {
             font-size: 20px;
+            opacity: 1;
             text-align: center;
             z-index: 1;
             position: absolute;
@@ -183,9 +184,7 @@
 <body>
     <div class="main-section">
         <div class="matrix"></div>
-        <div class="connect-tech">
-            <h4>Bit_nit - Soluções em Tecnologia, Informação e Comunicação!</h4>
-        </div>
+        <div class="connect-tech"><h4>Bit_nit______Soluções em Tecnologia, Informação e Comunicação!<h4/></div>
     </div>
 
     <div class="scroll-content">
@@ -220,6 +219,7 @@
                     Solução em consultoria em TI.<br>
                    · Desinfecção de vírus e malware.<br>
                    · Consultoria em Tecnologia da Informação e Comunicação.
+
                 </p>
             </div>
         </section>
@@ -244,7 +244,6 @@
         <div class="arrow"></div>
     </div>
 
-    <!-- JavaScript Essencial -->
     <script>
         const matrix = document.querySelector('.matrix');
         const scrollIndicator = document.getElementById('scrollIndicator');
@@ -267,7 +266,11 @@
         setInterval(createMatrixCode, 300);
 
         function handleScroll() {
-            scrollIndicator.style.opacity = window.scrollY > 100 ? '0' : '1';
+            if (window.scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
         }
 
         window.addEventListener('scroll', handleScroll);
@@ -290,16 +293,6 @@
 
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-    </script>
-
-    <!-- Carregar Google Tag Manager sob demanda -->
-    <script>
-        window.addEventListener('load', () => {
-            const scriptGtm = document.createElement('script');
-            scriptGtm.src = "https://www.googletagmanager.com/gtag/js?id=G-T55280126P";
-            scriptGtm.async = true;
-            document.head.appendChild(scriptGtm);
-        });
     </script>
 </body>
 </html>
